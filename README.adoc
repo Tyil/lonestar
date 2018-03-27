@@ -36,6 +36,13 @@ This will install the application into `/usr`. `make` can take a `DESTDIR` to
 change the installation path if desired.
 
 == Usage
+[TIP]
+====
+TL;DR: `lonestar install && eval $(lonestar init)` to get started, `echo 'eval
+$(lonestar init)' >> "$HOME/.${SHELL}rc"` to set the `PATH` for new shells as
+well.
+====
+
 For information on how to use the application, you can use the `help` command.
 
 [source,sh]
@@ -74,6 +81,14 @@ Both `path` and `init` will use the latest available Rakudo Star you have
 installed. Optionally, they can use a `year.month` release name. This will then
 use the given version for the paths. If the given version is not available, an
 error will be returned.
+
+To add these paths to your `PATH` for new shells as well, add it to your
+`${SHELL}rc`.
+
+[source,sh]
+----
+echo 'eval $(lonestar init)' >> "$HOME/${SHELL}rc"
+----
 
 === Configuration
 Configuration is done using a `bash` script with `export` statements. This is
