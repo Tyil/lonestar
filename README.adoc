@@ -12,8 +12,8 @@ To install the application from the plain sources, run the following commands.
 
 [source,sh]
 ----
-git clone https://github.com/tyil/lonestar.gz "$(mktemp -d)"
-cd !$
+cd -- "$(mktemp -d)"
+git clone https://github.com/tyil/lonestar.git .
 make install
 ----
 
