@@ -1,11 +1,21 @@
 DESTDIR ?= /usr
 
-install:
-	mkdir -p $(DESTDIR)/bin
-	install bin/* $(DESTDIR)/bin/.
+install: bin lib share etc
+
+bin:
+	install -D --mode=755 -p bin/lonestar $(DESTDIR)/bin/lonestar
+
+lib:
 	mkdir -p $(DESTDIR)/lib
-	install lib/lonestar/* $(DESTDIR)/lib/lonestar/.
-	mkdir -p $(DESTDIR)/share/lonestar/help
-	install share/lonestar/help/* $(DESTDIR)/share/lonestar/help/.
-	mkdir -p $(DESTDIR)/etc/lonestar
-	install etc/lonestar/* $(DESTDIR)/etc/lonestar/.
+	cp -r lib/lonestar $(DESTDIR)/lib/.
+	chmod 755 $(DESTDIR)/lib/lonestar/actions/*
+
+share:
+	mkdir -p $(DESTDIR)/share
+	cp -r share/lonestar $(DESTDIR)/share/.
+
+etc:
+	mkdir -p $(DESTDIR)/etc
+	cp -r etc/lonestar $(DESTDIR)/etc/.
+
+.PHONY: bin lib share etc
