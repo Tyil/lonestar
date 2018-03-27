@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 fetch_src()
 {
@@ -6,8 +6,9 @@ fetch_src()
 	dl_url="http://rakudo.org/downloads/star/rakudo-star-$version.tar.gz"
 	tmp=$(mktemp -d)
 
-	wget "$dl_url" -O "$tmp/$version.tar.gz"
+	curl "$dl_url" > "$tmp/$version.tar.gz"
 
+	mkdir -p "$RAKUDO_ROOT"
 	tar xzf "$tmp/$version.tar.gz" -C "$RAKUDO_ROOT/"
 	rm -r "$tmp"
 }

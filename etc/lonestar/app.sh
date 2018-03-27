@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 # Application configuration
 export LONESTAR_HELPPAGES="$APP_ROOTDIR/share/lonestar/help"

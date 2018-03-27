@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 readonly APP_ROOTDIR=$(CDPATH="" cd -- "$(dirname -- "$0")/.." && pwd -P)
 
