@@ -1,8 +1,17 @@
 #! /usr/bin/env sh
 
+use "find-last-version"
+
 main()
 {
 	version=${1:-$(find_last_version)}
+
+	if [ "$version" = "" ]
+	then
+		printf -- "%s\n" "No Rakudo Star could be found at $RAKUDO_ROOT" >&2
+		exit 2
+	fi
+
 	rakudo="$RAKUDO_ROOT/rakudo-star-$version"
 
 	if [ ! -d "$rakudo" ]
@@ -12,18 +21,6 @@ main()
 	fi
 
 	printf -- 'export PATH="%s:$PATH"\n' "$rakudo"
-}
-
-find_last_version()
-{
-	tmp=$(mktemp)
-
-	find "$HOME/.rakudo" -maxdepth 1 -type d > "$tmp"
-	version=$(sort -h "$tmp" | tail -n 1 | awk -F- '{ print $NF }')
-
-	rm -- "$tmp"
-
-	printf -- "%s" "$version"
 }
 
 main "$@"

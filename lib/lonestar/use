@@ -1,0 +1,8 @@
+#! /usr/bin/env sh
+
+use()
+{
+	. "$APP_ROOTDIR/lib/lonestar/$1"
+}
+
+export -f use

@@ -2,13 +2,16 @@
 
 readonly APP_ROOTDIR=$(CDPATH="" cd -- "$(dirname -- "$0")/.." && pwd -P)
 
+
+. "$APP_ROOTDIR/lib/lonestar/use"
+
 main()
 {
 	export APP_ROOTDIR
 
 	source_config
 
-	action=$LONESTAR_LIB/lonestar-${1:-help}
+	action=$LONESTAR_LIB/actions/${1:-help}
 
 	if [ ! -f "$action" ]
 	then

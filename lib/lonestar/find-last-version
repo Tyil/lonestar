@@ -1,0 +1,21 @@
+#! /usr/bin/env sh
+
+find_last_version()
+{
+	tmp=$(mktemp)
+
+	if [ ! -d "$RAKUDO_ROOT" ]
+	then
+		echo ""
+		return
+	fi
+
+	find "$RAKUDO_ROOT" -maxdepth 1 -type d > "$tmp"
+	version=$(sort -h "$tmp" | tail -n 1 | awk -F- '{ print $NF }')
+
+	rm -- "$tmp"
+
+	printf -- "%s" "$version"
+}
+
+export -f find_last_version
