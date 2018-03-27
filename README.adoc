@@ -9,10 +9,10 @@ distribution.
 === Debian and derivates (e.g. Ubuntu)
 [source,sh]
 ----
-apt install build-essential git curl
+apt install build-essential git curl sudo
 cd -- "$(mktemp -d)"
 git clone https://github.com/tyil/lonestar.git .
-make install
+sudo make install
 ----
 
 === From source
@@ -21,7 +21,8 @@ To install the application from the plain sources, run the following commands.
 [NOTE]
 ====
 You'll need the following dependencies to be available: `git`, `make`, `curl`,
-`perl`.
+`perl`. If you want to install to `/usr`, you'll also need some way to run
+`make install` with root, such as `sudo`.
 ====
 
 [source,sh]
