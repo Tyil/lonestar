@@ -1,0 +1,8 @@
+lonestar install [version=latest]
+
+Install a Rakudo Star distribution. Optionally takes an argument to install a
+specific release. Defaults to installing the latest release.
+
+Usage:
+  lonestar install
+  lonestar install 2018.01

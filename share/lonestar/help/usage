@@ -3,14 +3,9 @@ lonestar - Installation manager for Rakudo Star
 Usage: lonestar <action> [arguments...]
 
 Actions:
-  help      [topic]
+  help      [action]
+  init      [version=latest]
   install   [version=latest]
+  path      [version=latest]
   reinstall [version=latest]
   upgrade
-
-Help topics:
-  config
-  install
-  reinstall
-  upgrade
-  usage

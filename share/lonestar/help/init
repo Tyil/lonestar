@@ -1,0 +1,9 @@
+lonestar init [version=latest]
+
+Return evaluable shell code to include a Rakudo Star distribution to your PATH.
+Optionally takes an argument to use the path to the latest available release.
+Defaults to using the path of the latest available release.
+
+Usage:
+  eval $(lonestar init)
+  eval $(lonestar init 2018.01)

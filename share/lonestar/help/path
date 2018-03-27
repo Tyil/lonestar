@@ -1,0 +1,9 @@
+lonestar path [version=latest]
+
+Return the path to a Rakudo Star distribution. Optionally takes an argument to
+get the path to a specific release. Defaults to returning the path to the
+latest available release.
+
+Usage:
+  lonestar path
+  lonestar path 2018.01
