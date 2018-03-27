@@ -1,14 +1,28 @@
 = LoneStar
 :toc: preamble
 
-A small POSIX sh application to install the
+A small Bash application to install the
 https://rakudo.perl6.org/downloads/star/[Rakudo Star] https://perl6.org[Perl 6]
 distribution.
 
 == Installation
+=== Debian and derivates (e.g. Ubuntu)
+[source,sh]
+----
+apt install build-essential git curl
+cd -- "$(mktemp -d)"
+git clone https://github.com/tyil/lonestar.git .
+make install
+----
 
 === From source
 To install the application from the plain sources, run the following commands.
+
+[NOTE]
+====
+You'll need the following dependencies to be available: `git`, `make`, `curl`,
+`perl`.
+====
 
 [source,sh]
 ----
@@ -60,7 +74,7 @@ use the given version for the paths. If the given version is not available, an
 error will be returned.
 
 === Configuration
-Configuration is done using a `sh` script with `export` statements. This is
+Configuration is done using a `bash` script with `export` statements. This is
 done to keep the application simple. The configuration file should exist at
 `${XDG_CONFIG_HOME}/lonestar/config.sh`. If `$XDG_CONFIG_HOME` is not set,
 `$HOME/.config` will be assumed.
@@ -72,5 +86,5 @@ The following configuration options can be set:
 
 == License
 This application is released under the terms of the GNU AGPL version 3 or
-later. For more information, refer to the `LICENSE` file provided in the source
-tree.
+later. For more information, refer to the `LICENSE.txt` file provided in the
+source tree.
