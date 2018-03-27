@@ -53,15 +53,16 @@ Optionally, you can give it a year.month release name, for example `2018.01`.
 This will install the given version. If the version does not exist, an error
 will be returned.
 
-To get the path to the `bin` dir that contains the `perl6` executable, use the
-`path` command.
+To get the path to the directory containing the highest version of Rakudo Star
+you have installed, use the `path` command.
 
 [source,sh]
 ----
 lonestar path
 ----
 
-You can also have LoneStar update the path for you with the `init` command.
+You can also have LoneStar update the `PATH` for you to include the `bin`
+directory (with the `perl6` executable) with the `init` command.
 
 [source,sh]
 ----

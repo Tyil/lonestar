@@ -20,7 +20,7 @@ main()
 		exit 1
 	fi
 
-	printf -- 'export PATH="%s:$PATH"\n' "$rakudo"
+	printf -- 'export PATH="%s/install/bin:$PATH"\n' "$rakudo"
 }
 
 main "$@"
