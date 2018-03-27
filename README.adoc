@@ -1,0 +1,76 @@
+= LoneStar
+:toc: preamble
+
+A small POSIX sh application to install the
+https://rakudo.perl6.org/downloads/star/[Rakudo Star] https://perl6.org[Perl 6]
+distribution.
+
+== Installation
+
+=== From source
+To install the application from the plain sources, run the following commands.
+
+[source,sh]
+----
+git clone https://github.com/tyil/lonestar.gz "$(mktemp -d)"
+cd !$
+make install
+----
+
+This will install the application into `/usr`. `make` can take a `DESTDIR` to
+change the installation path if desired.
+
+== Usage
+For information on how to use the application, you can use the `help` command.
+
+[source,sh]
+----
+lonestar help
+----
+
+To install the latest Rakudo Star distribution you can use `install`.
+
+[source,sh]
+----
+lonestar install
+----
+
+Optionally, you can give it a year.month release name, for example `2018.01`.
+This will install the given version. If the version does not exist, an error
+will be returned.
+
+To get the path to the `bin` dir that contains the `perl6` executable, use the
+`path` command.
+
+[source,sh]
+----
+lonestar path
+----
+
+You can also have LoneStar update the path for you with the `init` command.
+
+[source,sh]
+----
+eval $(lonestar init)
+----
+
+Both `path` and `init` will use the latest available Rakudo Star you have
+installed. Optionally, they can use a `year.month` release name. This will then
+use the given version for the paths. If the given version is not available, an
+error will be returned.
+
+=== Configuration
+Configuration is done using a `sh` script with `export` statements. This is
+done to keep the application simple. The configuration file should exist at
+`${XDG_CONFIG_HOME}/lonestar/config.sh`. If `$XDG_CONFIG_HOME` is not set,
+`$HOME/.config` will be assumed.
+
+The following configuration options can be set:
+
+- `RAKUDO_ROOT` - The path where the Rakudo Star distributions will be
+  installed.
+
+== License
+This application is released under the terms of the GNU AGPL version 3 or
+later. For more information, refer to the `LICENSE` file provided in the source
+tree.
