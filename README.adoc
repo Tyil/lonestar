@@ -101,6 +101,9 @@ The following configuration options can be set:
 - `RAKUDO_ROOT` - The path where the Rakudo Star distributions will be
   installed.
 
+The defaults are specified in `etc/lonestar/user.sh`, which can serve as an
+example config file as well if you're unsure of how to use it.
+
 == License
 This application is released under the terms of the GNU AGPL version 3 or
 later. For more information, refer to the `LICENSE.txt` file provided in the
