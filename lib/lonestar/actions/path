@@ -1,0 +1,21 @@
+#! /usr/bin/env sh
+
+use "find-last-version"
+
+main()
+{
+	version=${1:-$(find_last_version)}
+
+	if [ "$version" = "" ]
+	then
+		printf -- "%s\n" "No Rakudo Star could be found at $RAKUDO_ROOT" >&2
+		exit 2
+	fi
+
+	rakudo="$RAKUDO_ROOT/rakudo-star-$version"
+
+	printf -- "%s" "$rakudo"
+}
+
+main "$@"
+
