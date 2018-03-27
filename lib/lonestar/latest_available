@@ -1,0 +1,19 @@
+#! /usr/bin/env sh
+
+latest_available()
+{
+	url="http://rakudo.org/downloads/star/rakudo-star-$1.tar.gz"
+	code=$(curl -LIs -o /dev/null -w '%{http_code}' "$url")
+
+	if [ "$code" != "200" ]
+	then
+		printf -- "%s\n" "$1 does not seem to be a valid release ($code: $url)." >&2
+		exit 1
+	fi
+
+	name=$(curl -LIs -o /dev/null -w '%{url_effective}' "$url" |  perl -pe 's/.*(\d{4}\.\d{2}).*/\1/')
+
+	printf -- "%s" "$name"
+}
+
+export -f latest_available

@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-find_last_version()
+latest_installed()
 {
 	tmp=$(mktemp)
 
@@ -18,4 +18,4 @@ find_last_version()
 	printf -- "%s" "$version"
 }
 
-export -f find_last_version
+export -f latest_installed

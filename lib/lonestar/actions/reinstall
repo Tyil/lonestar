@@ -8,12 +8,6 @@ main()
 {
 	version=$(latest_available "${1:-latest}")
 
-	if [ -d "$RAKUDO_ROOT/rakudo-star-$version" ]
-	then
-		printf -- "%s\n" "Rakudo Star sources for $version already exist"
-		return 0
-	fi
-
 	fetch_src "$version"
 	build     "$version"
 

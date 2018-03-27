@@ -1,10 +1,10 @@
 #! /usr/bin/env sh
 
-use "find-last-version"
+use "latest_installed"
 
 main()
 {
-	version=${1:-$(find_last_version)}
+	version=${1:-$(latest_installed)}
 
 	if [ "$version" = "" ]
 	then

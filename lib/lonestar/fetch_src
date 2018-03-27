@@ -1,0 +1,15 @@
+#! /usr/bin/env sh
+
+fetch_src()
+{
+	version=$1
+	dl_url="http://rakudo.org/downloads/star/rakudo-star-$version.tar.gz"
+	tmp=$(mktemp -d)
+
+	wget "$dl_url" -O "$tmp/$version.tar.gz"
+
+	tar xzf "$tmp/$version.tar.gz" -C "$RAKUDO_ROOT/"
+	rm -r "$tmp"
+}
+
+export -f fetch_src

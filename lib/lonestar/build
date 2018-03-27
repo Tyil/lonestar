@@ -1,0 +1,12 @@
+#! /usr/bin/env sh
+
+build()
+{
+	cd -- "$RAKUDO_ROOT/rakudo-star-$1" || exit
+
+	perl Configure.pl --backend=moar --gen-moar
+	make
+	make install
+}
+
+export -f build
