@@ -21,6 +21,7 @@ main()
 	fi
 
 	printf -- 'export PATH="%s/install/bin:$PATH"\n' "$rakudo"
+	printf -- 'export PATH="%s/install/share/perl6/site/bin:$PATH"\n' "$rakudo"
 }
 
 main "$@"
