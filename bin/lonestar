@@ -1,0 +1,43 @@
+#! /usr/bin/env sh
+
+readonly APP_ROOTDIR=$(CDPATH="" cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+main()
+{
+	export APP_ROOTDIR
+
+	source_config
+
+	action=$LONESTAR_LIB/lonestar-${1:-help}
+
+	if [ ! -f "$action" ]
+	then
+		printf -- "%s\n" "No action defined for $1. Try \"help\" for information on usage" >&2
+		return 1
+	fi
+
+	shift
+	exec "$action" "$@"
+}
+
+source_config()
+{
+	. "$APP_ROOTDIR/etc/lonestar/app.sh"
+	. "$APP_ROOTDIR/etc/lonestar/user.sh"
+
+	system_config=$APP_ROOTDIR/etc/lonestar/custom.sh
+
+	if [ -f "$system_config" ]
+	then
+		. "$system_config"
+	fi
+
+	user_config=${XDG_CONFIG_HOME:-$HOME/.config}/lonestar/config.sh
+
+	if [ -f "$user_config" ]
+	then
+		. "$user_config"
+	fi
+}
+
+main "$@"

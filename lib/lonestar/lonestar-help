@@ -1,0 +1,16 @@
+#! /usr/bin/env sh
+
+main()
+{
+	page="$LONESTAR_HELPPAGES/${1:-usage}"
+
+	if [ ! -f "$page" ]
+	then
+		printf -- "%s\n" "No help for $page. Try \"help\" for information on usage" >&2
+		return 1
+	fi
+
+	cat "$page"
+}
+
+main "$@"

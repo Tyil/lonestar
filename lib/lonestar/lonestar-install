@@ -1,0 +1,58 @@
+#! /usr/bin/env sh
+
+main()
+{
+	version=$(get_real_version "${1:-latest}")
+
+	fetch_src "$version"
+	build     "$version"
+	msg_done  "$version"
+
+	printf -- "%s\n" "Installation of Rakudo Star $version succesful!"
+}
+
+build()
+{
+	cd -- "$RAKUDO_ROOT/rakudo-star-$1" || exit
+
+	perl Configure.pl --backend=moar --gen-moar
+	make
+	make install
+}
+
+fetch_src()
+{
+	version=$1
+
+	if [ -d "$RAKUDO_ROOT/rakudo-star-$version" ]
+	then
+		printf -- "%s\n" "Rakudo Star sources for $version already exist"
+		return 0
+	fi
+
+	dl_url="http://rakudo.org/downloads/star/rakudo-star-$version.tar.gz"
+	tmp=$(mktemp -d)
+
+	wget "$dl_url" -O "$tmp/$version.tar.gz"
+
+	tar xzf "$tmp/$version.tar.gz" -C "$RAKUDO_ROOT/"
+	rm -r "$tmp"
+}
+
+get_real_version()
+{
+	url="http://rakudo.org/downloads/star/rakudo-star-$1.tar.gz"
+	code=$(curl -LIs -o /dev/null -w '%{http_code}' "$url")
+
+	if [ "$code" != "200" ]
+	then
+		printf -- "%s\n" "$1 does not seem to be a valid release ($code: $url)." >&2
+		exit 1
+	fi
+
+	name=$(curl -LIs -o /dev/null -w '%{url_effective}' "$url" |  perl -pe 's/.*(\d{4}\.\d{2}).*/\1/')
+
+	printf -- "%s" "$name"
+}
+
+main "$@"
