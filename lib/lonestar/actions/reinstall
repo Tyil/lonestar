@@ -8,6 +8,11 @@ main()
 {
 	version=$(latest_available "${1:-latest}")
 
+	if [ -d "$RAKUDO_ROOT/rakudo-star-$version" ]
+	then
+		rm -r "$RAKUDO_ROOT/rakudo-star-$version"
+	fi
+
 	fetch_src "$version"
 	build     "$version"
 
