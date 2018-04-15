@@ -3,10 +3,18 @@
 fetch_src()
 {
 	version=$1
-	dl_url="http://rakudo.org/downloads/star/rakudo-star-$version.tar.gz"
+	dl_url="https://rakudo.org/dl/star/rakudo-star-$version.tar.gz"
+	http_code=$(curl -LIs -o /dev/null -w '%{http_code}' "$dl_url")
+
+	if [ "$http_code" != "200" ]
+	then
+		printf -- "%s\n" "Failed retrieving $dl_url: $http_code"
+		exit 1
+	fi
+
 	tmp=$(mktemp -d)
 
-	curl "$dl_url" > "$tmp/$version.tar.gz"
+	curl -o "$tmp/$version.tar.gz" "$dl_url"
 
 	mkdir -p "$RAKUDO_ROOT"
 	tar xzf "$tmp/$version.tar.gz" -C "$RAKUDO_ROOT/"

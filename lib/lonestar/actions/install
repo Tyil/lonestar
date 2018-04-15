@@ -6,7 +6,7 @@ use "latest_available"
 
 main()
 {
-	version=$(latest_available "${1:-latest}")
+	version=${1:-$(latest_available)}
 
 	if [ -d "$RAKUDO_ROOT/rakudo-star-$version" ]
 	then
