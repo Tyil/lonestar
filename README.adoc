@@ -6,13 +6,27 @@ https://rakudo.perl6.org/downloads/star/[Rakudo Star] https://perl6.org[Perl 6]
 distribution.
 
 == Installation
-=== Debian and derivates (e.g. Ubuntu)
+=== Debian and derivatives (e.g. Ubuntu)
 [source,sh]
 ----
 apt install build-essential git curl sudo
 cd -- "$(mktemp -d)"
 git clone https://github.com/tyil/lonestar.git .
 sudo make install
+----
+
+=== Gentoo and derivatives (e.g. Funtoo)
+LoneStar is included in the
+https://github.com/scriptkitties/overlay[Scriptkitties Overlay], which should
+work for any distribution using Portage. There are
+https://github.com/scriptkitties/overlay#installation[overlay installation
+instructions] available at the README in the overlay repository.
+
+Once the overlay has been set up, you can install LoneStar using `emerge`:
+
+[source,sh]
+----
+emerge dev-util/lonestar
 ----
 
 === From source
