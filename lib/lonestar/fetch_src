@@ -15,6 +15,14 @@ fetch_src()
 	tmp=$(mktemp -d)
 
 	curl -o "$tmp/$version.tar.gz" "$dl_url"
+	curl_exit=$?
+
+	if [ $? ]
+	then
+		printf -- "%s\n" "curl returned non-success exit code: $curl_exit" >2
+		rm -r -- "$tmp"
+		exit 1
+	fi
 
 	mkdir -p "$RAKUDO_ROOT"
 	tar xzf "$tmp/$version.tar.gz" -C "$RAKUDO_ROOT/"
