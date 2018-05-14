@@ -6,6 +6,17 @@ https://rakudo.perl6.org/downloads/star/[Rakudo Star] https://perl6.org[Perl 6]
 distribution.
 
 == Installation
+=== Archlinux
+LoneStar https://aur.archlinux.org/packages/lonestar/[is available in the AUR],
+and can be installed from there.
+
+[source,sh]
+----
+cd -- "$(mktemp -d)"
+git clone https://aur.archlinux.org/lonestar.git .
+makepkg -csi
+----
+
 === Debian and derivatives (e.g. Ubuntu)
 [source,sh]
 ----
