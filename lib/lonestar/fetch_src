@@ -17,9 +17,9 @@ fetch_src()
 	curl -o "$tmp/$version.tar.gz" "$dl_url"
 	curl_exit=$?
 
-	if [ $? ]
+	if [ "$curl_exit" -gt 0 ]
 	then
-		printf -- "%s\n" "curl returned non-success exit code: $curl_exit" >2
+		printf -- "%s\n" "curl returned non-success exit code: $curl_exit" >&2
 		rm -r -- "$tmp"
 		exit 1
 	fi
