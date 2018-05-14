@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [UNRELEASED] - 2018-05-14
+## [1.0.1] - 2018-05-14
 ### Changed
 - The `Makefile` has been updated to allow slightly more customization:
   - The addition of `ETCDIR` allows to specify a custom location for
