@@ -17,7 +17,12 @@ main()
 	fetch_src "$version"
 	build     "$version"
 
-	printf -- "%s\n" "Installation of Rakudo Star $version succesful!"
+	printf -- "\n\n"
+	printf -- "%s\n"   "Installation of Rakudo Star $version succesful!"
+	printf -- "\n"
+	printf -- "%s\n"   "Don't forget to initialize LoneStar so \`perl6\` appears in your PATH:"
+	printf -- "  %s\n" "eval \$(lonestar init)"
+	printf -- "\n"
 }
 
 main "$@"
