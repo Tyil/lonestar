@@ -2,8 +2,8 @@
 
 latest_available()
 {
-	url="https://rakudo.org/latest/star/source"
-	release=$(curl -Is "$url" | grep Content-Disposition | perl -pe 's/.*(\d{4}\.\d{2}).*/\1/')
+	url="https://rakudostar.com/latest/star/source"
+	release=$(curl -ILs "$url" | grep Content-Disposition | perl -pe 's/.*(\d{4}\.\d{2}).*/\1/')
 
 	printf -- "%s" "$release"
 }
