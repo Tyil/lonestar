@@ -8,4 +8,3 @@ Actions:
   install   [version=latest]
   path      [version=latest]
   reinstall [version=latest]
-  upgrade
