@@ -64,8 +64,8 @@ change the installation path if desired.
 [TIP]
 ====
 TL;DR: `lonestar install && eval $(lonestar init)` to get started, `echo 'eval
-$(lonestar init)' >> "$HOME/.${SHELL}rc"` to set the `PATH` for new shells as
-well.
+$(lonestar init)' >> "$HOME/.$(ps -p $$|tail -n1|awk '{print $NF}')rc"` to set
+the `PATH` for new shells as well.
 ====
 
 For information on how to use the application, you can use the `help` command.
@@ -108,11 +108,13 @@ use the given version for the paths. If the given version is not available, an
 error will be returned.
 
 To add these paths to your `PATH` for new shells as well, add it to your
-`${SHELL}rc`.
+shell's configuration file. Using most shells, you can use the magic line `ps
+-p $$|tail -n1|awk '{print $NF}'` to inject your current shell's name.
 
 [source,sh]
 ----
-echo 'eval $(lonestar init)' >> "$HOME/${SHELL}rc"
+echo 'eval $(lonestar init)' \
+  >> "$HOME/$(ps -p $$|tail -n1|awk '{print $NF}')rc"
 ----
 
 === Configuration

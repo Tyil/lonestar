@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- The documentation has been updated to no longer refer to `${SHELL}rc` as the
+  shell's configuration file, as this seems to not work on most shells.
+  Instead, this has been changed to `ps -p $$|tail -n1|awk '{print $NF}'`,
+  which is much more cross-compatible amongst shells.
+  - [`GitHub#2`](https://github.com/Tyil/lonestar/issues/2).
+
 ## [1.0.2] - 2019-07-09
 
 ### Changed
