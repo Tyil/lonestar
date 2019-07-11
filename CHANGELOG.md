@@ -38,6 +38,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - The `Makefile` has been updated to allow slightly more customization:
   - The addition of `ETCDIR` allows to specify a custom location for
      configuration files. This defaults to `/etc`.
+
 - Configuration file loading has been updated to look for a number of
   configuration files, and load them in the following order:
   - `$APP_ROOTDIR/etc/lonestar/app.sh`
@@ -51,6 +52,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   Additionally, a local user can specify its own configuration in
   `$XDG_CONFIG_HOME/lonestar/config.sh`. If this environment variable is not
   set, it will default to `$HOME/.config`.
+
 - `fetch_src` has gotten a couple of fixes
   - The check for when curl was failing was... failing. It has been made
     slightly more verbose to solve this.
@@ -60,4 +62,4 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.0.0] - 2018-04-15
 
-- Creation of the application
+- Initial release.
