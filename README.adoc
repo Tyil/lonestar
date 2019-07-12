@@ -114,7 +114,7 @@ shell's configuration file. Using most shells, you can use the magic line `ps
 [source,sh]
 ----
 echo 'eval $(lonestar init)' \
-  >> "$HOME/$(ps -p $$|tail -n1|awk '{print $NF}')rc"
+  >> "$HOME/.$(ps -p $$|tail -n1|awk '{print $NF}')rc"
 ----
 
 === Configuration
