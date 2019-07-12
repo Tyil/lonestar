@@ -13,7 +13,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   shell's configuration file, as this seems to not work on most shells.
   Instead, this has been changed to `ps -p $$|tail -n1|awk '{print $NF}'`,
   which is much more cross-compatible amongst shells.
+
+  Related links:
+
   - [`GitHub#2`](https://github.com/Tyil/lonestar/issues/2).
+
+  Special thanks to:
+
+  - [sarna](https://github.com/sarna)
 
 ## [1.0.2] - 2019-07-09
 
