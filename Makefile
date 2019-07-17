@@ -4,7 +4,9 @@ ETCDIR ?= /etc
 install: bin lib share etc
 
 bin:
-	install -D --mode=755 -p bin/lonestar "$(DESTDIR)/bin/lonestar"
+	cp bin/lonestar "$(DESTDIR)/bin/lonestar"
+	chmod 755 "$(DESTDIR)/bin/lonestar"
+	chown root:root "$(DESTDIR)/bin/lonestar"
 
 lib:
 	mkdir -p -- "$(DESTDIR)/lib"

@@ -1,0 +1,16 @@
+make-install:
+  image: "alpine:latest"
+  before_script:
+    - apk add --no-cache bash make
+  script:
+    - make install
+    - lonestar help
+
+action-install:
+  image: "alpine:latest"
+  variables:
+    LONESTAR_TEST: "1"
+  before_script:
+    - apk add --no-cache bash curl perl
+  script:
+    - ./bin/lonestar install

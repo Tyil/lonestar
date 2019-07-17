@@ -24,6 +24,8 @@ fetch_src()
 		exit 1
 	fi
 
+	printf "Downloaded Rakudo Star from %s\n" "$dl_url"
+
 	mkdir -p "$RAKUDO_ROOT"
 	tar xzf "$tmp/$version.tar.gz" -C "$RAKUDO_ROOT/"
 	rm -r "$tmp"

@@ -15,7 +15,11 @@ main()
 	fi
 
 	fetch_src "$version"
-	build     "$version"
+
+	if [ -z "$LONESTAR_TEST" ]
+	then
+		build "$version"
+	fi
 
 	printf -- "%s\n" "Installation of Rakudo Star $version succesful!"
 }

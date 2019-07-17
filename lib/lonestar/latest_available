@@ -3,7 +3,16 @@
 latest_available()
 {
 	url="https://rakudostar.com/latest/star/source"
-	release=$(curl -ILs "$url" | grep Content-Disposition | perl -pe 's/.*(\d{4}\.\d{2}).*/\1/')
+	buffer=$(mktemp)
+
+	curl -IL "$url" > "$buffer"
+
+	release=$(grep -i Content-Disposition < "$buffer" | perl -pe 's/.*(\d{4}\.\d{2}).*/\1/')
+
+	if [ -n "$LONESTAR_TEST" ]
+	then
+		cat "$buffer" >&2
+	fi
 
 	printf -- "%s" "$release"
 }
