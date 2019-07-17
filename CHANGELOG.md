@@ -9,6 +9,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- The URL to *download* the distribution tarball from was also changed, and
+  `lonestar` has been updated accordingly.
+
 - The documentation has been updated to no longer refer to `${SHELL}rc` as the
   shell's configuration file, as this seems to not work on most shells.
   Instead, this has been changed to `ps -p $$|tail -n1|awk '{print $NF}'`,

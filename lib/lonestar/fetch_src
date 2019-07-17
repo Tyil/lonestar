@@ -3,7 +3,7 @@
 fetch_src()
 {
 	version=$1
-	dl_url="https://rakudo.org/dl/star/rakudo-star-$version.tar.gz"
+	dl_url="https://rakudostar.com/files/star/rakudo-star-$version.tar.gz"
 	http_code=$(curl -LIs -o /dev/null -w '%{http_code}' "$dl_url")
 
 	if [ "$http_code" != "200" ]
