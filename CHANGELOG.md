@@ -5,9 +5,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED]
+
+### Changed
+
+- `make install` will now attempt to create the directory in which it is trying
+  to install `lonestar`. This should resolve issues where a user tries to
+  install the program into a non-standard location.
+
 ## [1.0.3] 2019-07-17
 
 ### Changed
+
+- `make install` no longer uses `install` to copy the `lonestar` program. This
+  is changed because `install` is not POSIX compatible, and different
+  distributions seem to ship different, non-compatible versions of `install`.
 
 - The URL to *download* the distribution tarball from was also changed, and
   `lonestar` has been updated accordingly.
